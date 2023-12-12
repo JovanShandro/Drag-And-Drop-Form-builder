@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { FormField } from '../form.service';
+import { FormField, FormFieldType, FormService } from '../form.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-form-field',
@@ -8,5 +9,17 @@ import { FormField } from '../form.service';
 })
 export class FormFieldComponent {
   @Input() field?: FormField;
-  selectedField?: FormField;
+  selectedField$: Observable<FormField | null> = of(null);
+
+  constructor(private formService: FormService) {
+    this.selectedField$ = this.formService.selectedField;
+  }
+
+  selectField() {
+    if (this.field?.fieldType === FormFieldType.Empty) {
+      return;
+    }
+
+    this.formService.selectedField.next(this.field || null);
+  }
 }

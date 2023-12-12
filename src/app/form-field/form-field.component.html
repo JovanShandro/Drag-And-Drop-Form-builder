@@ -1,12 +1,18 @@
 <!--Shows the right type of field based on the passed type-->
-<div class="field">
-  <div *ngIf="field?.fieldType === 'empty'">Drop content here</div>
-  <div *ngIf="field?.fieldType === 'text'">
-    Text Input
-    <input type="text" />
-  </div>
-  <div *ngIf="field?.fieldType === 'email'">
-    Email Input
-    <input type="email" />
+<div
+  class="field"
+  [ngClass]="{ 'field--active': (selectedField$ | async)?.id === field?.id }"
+  (click)="selectField()"
+>
+  <div class="field__content">
+    <div *ngIf="field?.fieldType === 'empty'">Drop content here</div>
+    <div *ngIf="field?.fieldType === 'text'">
+      Text Input
+      <input type="text" />
+    </div>
+    <div *ngIf="field?.fieldType === 'email'">
+      Email Input
+      <input type="email" />
+    </div>
   </div>
 </div>
