@@ -1,0 +1,53 @@
+:host {
+  width: 100%;
+  height: 100%;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+
+  &__nav {
+    display: flex;
+    height: 60px;
+    background: lightseagreen;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    button {
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.5rem 1rem;
+      background-color: rgb(59, 130, 246);
+      border-radius: 0.25rem;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(9, 78, 216);
+      }
+    }
+  }
+
+  &__main-content {
+    min-width: 100%;
+    height: 100%;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    padding-right: 20px;
+  }
+
+  &__form-renderer {
+    margin-top: 2.5rem;
+    grid-column: span 3 / span 3;
+  }
+
+  &__customization-panel {
+    margin-top: 2.5rem;
+    background: lightgrey;
+    grid-column: span 2 / span 2;
+  }
+}

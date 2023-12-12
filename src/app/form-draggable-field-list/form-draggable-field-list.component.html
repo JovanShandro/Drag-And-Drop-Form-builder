@@ -1,0 +1,16 @@
+<div
+  class="draggable-field-list"
+  cdkDropList
+  [cdkDropListConnectedTo]="allConnectedListIds"
+  [cdkDropListData]="draggableFields"
+  [cdkDropListEnterPredicate]="noReturnPredicate"
+>
+  <div
+    *ngFor="let draggableField of draggableFields"
+    class="draggable-field-list__field"
+    [cdkDragData]="draggableField"
+    cdkDrag
+  >
+    <img [src]="'/assets/' + draggableField.fieldType + '.png'" />
+  </div>
+</div>

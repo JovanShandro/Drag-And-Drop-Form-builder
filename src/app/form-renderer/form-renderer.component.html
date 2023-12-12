@@ -1,0 +1,19 @@
+<div
+  id="section-list"
+  class="form-renderer"
+  cdkDropList
+  [cdkDropListEnterPredicate]="isSectionPredicate"
+  (cdkDropListDropped)="onSectionDrop($event)"
+>
+  <div
+    *ngFor="let section of sections"
+    class="form-renderer__section-container"
+    cdkDrag
+  >
+    <div class="form-renderer__section-handle" cdkDragHandle></div>
+    <app-form-section
+      class="form-renderer__section"
+      [section]="section"
+    ></app-form-section>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<section class="sidebar">
+  <!--The list of draggable Sections-->
+  <div class="sidebar__section-headline">
+    <h1>Form Sections</h1>
+    <mat-icon
+      matTooltip="Drag different section-types into the form to see the placeholders for the form fields."
+      matTooltipPosition="above"
+      >info</mat-icon
+    >
+  </div>
+  <app-form-draggable-section-list></app-form-draggable-section-list>
+
+  <br />
+
+  <!--The list of draggable fields-->
+  <div class="sidebar__section-headline">
+    <h1>Form Fields</h1>
+    <mat-icon
+      matTooltip="Drag different field-types into the placeholders to add them to the form."
+      matTooltipPosition="above"
+      >info</mat-icon
+    >
+  </div>
+  <app-form-draggable-field-list></app-form-draggable-field-list>
+</section>

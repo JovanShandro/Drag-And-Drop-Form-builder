@@ -1,0 +1,28 @@
+<div
+  class="draggable-section-list"
+  id="draggable-section-list"
+  cdkDropList
+  [cdkDropListConnectedTo]="['section-list']"
+  [cdkDropListData]="draggableSections"
+  [cdkDropListSortPredicate]="noReturnPredicate"
+  cdkDropListSortingDisabled
+>
+  <ng-container *ngFor="let draggableSection of draggableSections">
+    <div class="draggable-section" [cdkDragData]="draggableSection" cdkDrag>
+      <ng-container
+        *ngFor="
+          let placeholderWidth of draggableSection.placeholders.split(':')
+        "
+      >
+        <div
+          *ngIf="placeholderWidth === '1'"
+          class="draggable-section__placeholder"
+        ></div>
+        <div
+          *ngIf="placeholderWidth === '2'"
+          class="draggable-section__placeholder draggable-section__placeholder--wide"
+        ></div>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>

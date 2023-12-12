@@ -1,0 +1,27 @@
+<!--The outer list will take care of the horizontal reordering-->
+<div
+  class="field-list"
+  cdkDropList
+  cdkDropListOrientation="horizontal"
+  (cdkDropListDropped)="onReorderFields($event)"
+  [cdkDropListEnterPredicate]="noReturnPredicate"
+>
+  <!--The inner list will make sure you can drop a form type in the area that is highlighted by a blue border in the app-->
+  <div
+    *ngFor="let field of section?.fields; index as i"
+    [id]="field.id"
+    class="field"
+    [ngClass]="{
+      'field--wide':
+        (section?.sectionType === formSectionType.OneToTwoRow && i === 1) ||
+        (section?.sectionType === formSectionType.TwoToOneRow && i === 0)
+    }"
+    cdkDropList
+    (cdkDropListDropped)="onFormItemDrop($event, field)"
+    [cdkDropListEnterPredicate]="nonSectionPredicate"
+    cdkDrag
+  >
+    <div class="field__handle" cdkDragHandle></div>
+    <app-form-field [field]="field"></app-form-field>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="field">
+  <div
+    class="field__content"
+    [id]="field?.id || 'default'"
+    cdkDropList
+    (cdkDropListDropped)="onFormItemDrop($event, field)"
+    [cdkDropListEnterPredicate]="nonSectionPredicate"
+  >
+    <app-form-field [field]="field"></app-form-field>
+  </div>
+</div>

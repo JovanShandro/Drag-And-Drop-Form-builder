@@ -1,0 +1,19 @@
+<!--Note the use of the 'cdkDropListGroup' directive-->
+<div class="app">
+  <nav class="app__nav">
+    <h2>Form Generator</h2>
+    <button (click)="generateHTML()">Generate HTML</button>
+  </nav>
+  <div class="app__main-content" cdkDropListGroup>
+    <!--Takes care of displaying the list of sections and fields-->
+    <app-sidebar></app-sidebar>
+
+    <!--Shows the whole form in the middle-->
+    <section class="app__form-renderer">
+      <app-form-renderer></app-form-renderer>
+    </section>
+
+    <!-- TODO add section about customizing fields -->
+    <section class="app__customization-panel"></section>
+  </div>
+</div>

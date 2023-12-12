@@ -1,0 +1,13 @@
+<!--Shows the right type of section based on the passed type-->
+<div [ngSwitch]="section?.sectionType">
+  <app-multi-field-section
+    *ngSwitchDefault
+    [section]="section"
+  ></app-multi-field-section>
+
+  <app-single-field-section
+    *ngSwitchCase="formSectionType.OneInARow"
+    [field]="section?.fields?.[0]"
+  >
+  </app-single-field-section>
+</div>
